@@ -1,6 +1,7 @@
 package work
 
 import (
+	"log"
 	"sync"
 	"time"
 
@@ -237,6 +238,8 @@ func (e *Enqueuer) uniqueJobHelper(jobName string, args map[string]interface{}, 
 
 			script = e.enqueueUniqueInScript
 		}
+		log.Printf("WORK/SCRIPTARGS: %v", scriptArgs)
+		log.Printf("WORK/SCRIPT: %v", script)
 
 		return redis.String(script.Do(conn, scriptArgs...))
 	}

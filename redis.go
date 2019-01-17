@@ -76,7 +76,7 @@ func redisKeyUniqueJob(namespace, jobName string, args map[string]interface{}) (
 	var buf bytes.Buffer
 
 	buf.WriteString(redisNamespacePrefix(namespace))
-	buf.WriteString("jobs:")
+	buf.WriteString("unique:")
 	buf.WriteString(jobName)
 	buf.WriteRune(':')
 
